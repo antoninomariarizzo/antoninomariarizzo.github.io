@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUSIPCO2023</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Custom CSS for the dark bar */
+        .top-bar {
+            background-color: #373737;
+            color: #fff;
+            padding: 15px 0; /* Increase the top and bottom padding to make the bar larger */
+        }
+
+        /* Style the arrow icon */
+        .arrow-icon {
+            float: right;
+            font-size: 24px;
+            margin-right: 20px;
+            color: #fff;
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 10px 0; /* Adjust padding for smaller screens */
+            }
+            .arrow-icon {
+                margin-right: 10px;
+            }
+
+            .max-width-100 {
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .max-width-100 {
+                max-width: 50%;
+            }
+        }
+        
+        a.arrow-link {
+            color: inherit; /* Inherit the color from the parent element */
+            /* text-decoration: none; /* Remove the underline */
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Arrow Icon -->
+    <div class="top-bar">
+        <div class="container">
+            <a href="index.html" class="arrow-link">
+                <i class="fas fa-arrow-left fa-2x"></i>
+              </a>
+        </div>
+    </div>
+
+
+    <!-- Content of the paper goes here -->
+    <div class="container mt-4">
+        <h1 class="mb-3">Event Detection in Optical Signals via Domain Adaptation</h1>
+
+        <p>Antonino Maria Rizzo<sup>1</sup>, Luca Magri<sup>1</sup>, Pietro Invernizzi<sup>2</sup>, Enrico Sozio<sup>2</sup>, Gabriele Aquaro<sup>2</sup>, Stefano Binetti<sup>2</sup>, Cesare Alippi<sup>1,3</sup>, Giacomo Boracchi<sup>1</sup><br>
+            <sup>1</sup>Politecnico di Milano, <sup>2</sup>Cisco Photonics, <sup>3</sup>Università della Svizzera Italiana</p>
+
+
+
+        <h2>Abstract</h2>
+        <p>
+            Data-driven models trained in an end-to-end manner can reliably detect events within optical signals. 
+            Unfortunately, event detection models poorly generalize when monitoring
+            signals collected from devices with different acquisition procedures. 
+            We overcome this limitation by presenting a novel domain adaptation solution for event detection networks that enables
+            inference across multiple types of devices. Rather than training a black-box detection network, we decouple event localization and classification tasks. Localization is performed by the Interval Proposal Algorithm (IPA), which leverages signal processing techniques to localize candidate events and derive context features. These events are then standardized and fed to a feature extractor to obtain morphological features. By combining domain-specific context features with domain-invariant morphological features, the classifier achieves good generalization capabilities through different domains. Our method can successfully detect events in OTDR traces achieving a mAP@0.5 of 75.33% on traces from the source domain and generalizing well (mAP@0.5 of 69.27%) on traces from the target domain, despite being trained solely from the source domain.
+        </p>
+
+        <a href="https://polimi365-my.sharepoint.com/:b:/g/personal/10483090_polimi_it/Ed96Wgqz6T5Gs5GEvl50qFsBgaacrp4yUJbOXEmMqzwcfg" 
+        target="_blank" class="btn btn-primary">Paper</a>
+        <a href="https://polimi365-my.sharepoint.com/:b:/g/personal/10483090_polimi_it/EbezA5gGaplGkrXtRrXJ380BpEoAidyjNVPWMqW_CWnoFg" target="_blank" class="btn btn-secondary">Poster</a>
+
+        <img src="otdr_scheme.png" alt="Publication Image" class="img-fluidmb-4" style="max-width: 100%;">
+        
+        <h2>Introduction</h2>
+        <p>Detection networks are used to identify events within OTDR traces allowing the monitoring of fiber links.</p>
+
+        <img src="otdr_signal.png" alt="Publication Image" class="img-fluid mb-4 max-width-100">
+
+        <p>Two distinct types of OTDR devices analyzing the same fiber span might provide extremely different traces.</p>
+
+        <img src="otdr_issue.png" alt="Publication Image" class="img-fluid mb-4 max-width-100">
+
+        <p>
+            We designed an event-detection network that generalizes well on traces from different devices, avoiding the need for retraining (Domain Adaptation).
+        </p>
+
+        <h2>Problem Formulation</h2>
+        <p>
+            <ul>
+                <li><b>Input.</b> Traces 𝑇 from a source domain 𝐷! (device 𝛼) or a target domain 𝐷" (device 𝛽).</li>
+                <li><b>Goal.</b> Automatically detect all events in a trace 𝑇, regardless of whether they originate from 𝐷! or 𝐷".</li>
+                <li><b>Assumptions.</b> Fine-tuning on data from 𝐷" is not feasible.</li>
+              </ul>
+        </p>
+
+        <h2>Key Intuitions</h2>
+        <p>
+            <ul>
+                <li>Decouple event localization and classification.</li>
+                <li>Localize events using signal processing techniques. </li>
+                <li>Standardize events before classification.</li>
+                <li>Feed context/morphological features to the classifier.</li>
+            </ul>
+        </p>
+
+        <h2>Proposed Method</h2>
+        <h5>Interval Proposal Algorithm</h5>
+        <p>
+            The Interval Proposal Algorithm localizes tentative events. It is composed of three stages:
+            <ol>
+                <li><b>Peak Detection.</b> Find peaks in the trace.</li>
+                <li><b>Interval Estimation.</b>
+                    <ol>
+                        <li>For each peak, crop two windows around the peak.</li>
+                        <li>Use samples in the windows to fit two lines</li>
+                        <li>The left-limit is the right-most inlier of  the left-hand model, the right-
+                            limit is the left-most inlier of righ-hand model.</li>
+                    </ol>
+                </li>
+                <li><b>Context features.</b> Extract domain-specific information e.g., power magnitude, or positional encoding of the events.</li>
+            </ol>
+        </p>
+
+        <img src="otdr_ipa.png" alt="Publication Image" class="img-fluid mb-4 max-width-100">
+
+
+        <h5>Event Standardization</h5>
+        <p>
+            This stage removes device-specific features. Resize the candidate event windows to be fixed-size and normalize in [−1, 1].
+        </p>
+
+        <h5>Feature Extractor and Classifier</h5>
+        <p>
+            <ul>
+                <li>The Feature Extractor computes morphological features, i.e.,embedding of the standardized events, where the bias ofOTDR devices disappeared, leaving only the event'smorphology.</li>
+                <li>The classifier performance are enhanced training with both morphological and context features.</li>
+
+            </ul>
+        </p>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
