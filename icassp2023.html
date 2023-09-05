@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUSIPCO2023</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Custom CSS for the dark bar */
+        .top-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0; /* Increase the top and bottom padding to make the bar larger */
+        }
+
+        /* Style the arrow icon */
+        .arrow-icon {
+            float: right;
+            font-size: 24px;
+            margin-right: 20px;
+            color: #fff; /* Change the arrow color to white */
+        }
+
+        /* Adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 10px 0; /* Adjust padding for smaller screens */
+            }
+            .arrow-icon {
+                margin-right: 10px;
+            }
+        }
+        
+        a.arrow-link {
+            color: inherit; /* Inherit the color from the parent element */
+            /* text-decoration: none; /* Remove the underline */
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Arrow Icon -->
+    <div class="top-bar">
+        <div class="container">
+            <a href="home.html" class="arrow-link">
+                <i class="fas fa-arrow-left fa-2x"></i>
+              </a>
+        </div>
+    </div>
+
+
+    <!-- Content of the paper goes here -->
+    <div class="container mt-4">
+        <h1 class="mb-3">Anomaly Detection in Optical Spectra via Joint Optimization</h1>
+        <p>Antonino Maria Rizzo<sup>1</sup>, Luca Magri<sup>1</sup>, Pietro Invernizzi<sup>2</sup>, Enrico Sozio<sup>2</sup>, Stefano Piciaccia<sup>2</sup>, Alberto Tanzi<sup>2</sup>, Stefano Binetti<sup>2</sup>, Cesare Alippi<sup>1,3</sup>, Giacomo Boracchi<sup>1</sup><br>
+            <sup>1</sup>Politecnico di Milano, <sup>2</sup>Cisco Photonics, <sup>3</sup>Università della Svizzera Italiana</p>
+
+        <h2>Abstract</h2>
+        <p>
+            Despite the remarkable progress of fiber optics in communication, little attention has been devoted to the automatic detection of anomalies in optical spectra, i.e., poorly transmitted channels.
+            This task is typically addressed by ad-hoc heuristics that fall short in spectra presenting heavy distortions caused by optical amplifiers during transmission.
+            We propose a method based on a joint optimization procedure for estimating the major trends that characterize the spectrum, enabling the detection of anomalies even in the presence of few channels and heavy distortions.
+            Our experiments have shown that the proposed method can successfully localize anomalies achieving more than 98% accuracy, outperforming all competitors.
+
+        </p>
+
+        <img src="ocm_intro.pdf" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+        
+        <h2>Introduction</h2>
+        <ul>
+            <li>User information is enclosed into spectra and transmitted through fiber optics. </li>
+            <li>A spectrum contains a varying number of channels that follow a trend 𝜈.</li>
+            <li>At the bottom of the spectrum, the ASE provides a base power level in regions with no channels. ASE samples follow a trend 𝜇.</li>
+            <li>The occurrence of faults cause anomalies, which result in non-equalized peaks.  </li>
+        </ul>
+
+        
+
+        <h2>Joint Optimization</h2>
+        <p>
+            Our method account for the similarity of the channel and ASE trends, 𝜈 and 𝜇, by  optimizing the following loss:
+        </p>
+        <img src="ocm_jo.pdf" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+
+        <h2>Proposed Method</h2>
+        <img src="ocm_running_example.pdf" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+
+        <h2>Experiments</h2>
+        <p>Our experiments demonstrate that our joint optimization procedure enhances channel trend estimation, enabling the accurate detection of anomalies.
+        </p>
+        <img src="ocm_experiments.pdf" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

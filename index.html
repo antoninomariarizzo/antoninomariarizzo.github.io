@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonino Maria Rizzo</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Custom CSS for centering text on small screens */
+        @media (max-width: 768px) {
+            .center-text {
+                text-align: center;
+            }
+
+            .profile-pic-alignment{
+                text-align: center;
+            }
+
+            .profile-pic-alignment img{
+                text-align: center;
+            }
+
+            .paper_pic img{
+                max-width: 25%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .profile-pic-alignment{
+                text-align: right;
+            }
+
+            .profile-pic-alignment img{
+                text-align: right;
+            }
+        }
+
+        .name {
+            text-align: center;
+            font-size: 2rem; 
+        }
+
+        .profile_info {
+            font-size: 1.1rem; 
+        }
+
+        .horizontal-space {
+            margin-right: 20px; /* Adjust the margin as needed for the desired space */
+        }
+
+        .interactive-icon:hover {
+            color: #007bff; /* Change to your desired hover color */
+        }
+
+        h3 {
+            font-size: 1.5rem; /* Adjust the font size as needed */
+            /* font-weight: bold; /* Optionally, make the text bold */
+            /*color: #333; /* Optionally, set the text color */
+            /* Add any other CSS properties you want to customize */
+        }
+
+        h3 a {
+            color: #000000; /* Change to your desired link color */
+            text-decoration: none; /* Remove the default underline */
+        }
+
+        /* Style the links on hover */
+        h3 a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        a.email-link {
+            color: inherit; /* Inherit the color from the parent element */
+            /* text-decoration: none; /* Remove the underline */
+        }
+
+        .shadow {
+            box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="bg-dark text-white text-center pt-1">
+    <!-- Main Content Section -->
+    
+            <h1 class="name mt-1 mb-3">Antonino Maria Rizzo</h1>
+        
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6 col-sm-12 profile-pic-alignment">
+                    <img src="profile-picture.jpg" alt="Profile Picture" class="img-fluid rounded-circle mb-4" style="max-width: 200px;">
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="text-left">
+                        <p class="center-text profile_info"><i class="fas fa-briefcase mr-2"></i> PhD Student</p>
+                        <p class="center-text profile_info"><i class="fas fa-envelope mr-2"></i>
+                            <a href="mailto:antoninomaria.rizzo@gmail.com" class="email-link" target="_blank">antoninomaria.rizzo (at) gmail.com</a>
+                        </p>
+                        <p class="center-text">
+                            <a href="https://scholar.google.it/citations?user=PQJTiywAAAAJ&hl=it&oi=ao" target="_blank" class="email-link">
+                                <i class="fas fa-graduation-cap fa-2x mr-2 interactive-icon"></i>
+                            </a>  
+                            <span class="horizontal-space"></span>
+                            <a href="https://www.linkedin.com/in/antonino-maria-rizzo-035420176/" target="_blank" class="email-link">
+                                <i class="fab fa-linkedin fa-2x mr-2 interactive-icon"></i>
+                            </a>
+                            <span class="horizontal-space"></span>
+                            <a href="https://github.com/antoninomariarizzo" target="_blank" class="email-link">
+                                <i class="fab fa-github fa-2x mr-2 interactive-icon"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="container my-5">
+        
+            <div class="col-md-12">
+                <div class="bio mb-5">
+                    <h2>Bio</h2>
+                    <p class="text-justify">
+                        Antonino Maria Rizzo was born in Mazara del Vallo (TP) on November 22nd, 1995. He received the Laurea magistrale (M.Sc.) in Computer Science and Engineering from the Politecnico di Milano (IT) in 2021.
+                        He is currently pursuing the National PhD in Artificial Intelligence - Industry 4.0 under the supervision of Prof. Giacomo Boracchi and Prof. Luca Magri at the Politecnico di Milano. He is involved in an industrial research project with Cisco Photonics for fiber optics monitoring.
+                    </p>
+                </div>
+            
+
+                <h2>Publications</h2>
+
+                <div class="publication mb-5">
+
+                    <h3 class="mt-5 mb-3">2023</h3>
+
+                    <div class="row mb-5">
+                        <div class="col-md-2 paper_pic">
+                            <a href="eusipco2023.html">
+                            <img src="eusipco2023.pdf" alt="Publication Image" class="img-fluid shadow mb-4">
+                            </a>
+                        </div>
+                        <div class="col-md-9">  
+                            <h3><a href="eusipco2023.html">Event Detection in Optical Signals via Domain Adaptation</a>
+                            </h3>
+
+                            <h6><i>EURASIP Europen Signal Processing Conference (EUSIPCO)</i></h6>
+
+                            <p>
+                                Domain adaptation in OTDR traces to allow inference across multiple types of OTDR devices.
+                            </p>
+                            
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10096609" target="_blank" class="btn btn-primary">Paper</a>
+                            <a href="publication1-code.zip" target="_blank" class="btn btn-secondary">Poster</a>
+                            <a href="publication1-code.zip" target="_blank" class="btn btn-secondary">Video</a>
+                            
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-md-2 paper_pic">
+                            <a href="icassp2023.html">
+                            <img src="icassp2023.pdf" alt="Publication Image" class="img-fluid shadow mb-4">
+                            </a>
+                        </div>
+                        <div class="col-md-9">  
+                            <h3><a href="icassp2023.html">Anomaly Detection in Optical Spectra Via Joint Optimization</a>
+                            </h3>
+
+                            <h6><i>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</i></h6>
+
+                            <p>
+                                Anomaly detection by estimating trends in the spectrum through a joint optimization procedure.
+                            </p>
+                            
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10096609" target="_blank" class="btn btn-primary">Paper</a>
+                            <a href="publication1-code.zip" target="_blank" class="btn btn-secondary">Poster</a>
+                            <a href="publication1-code.zip" target="_blank" class="btn btn-secondary">Video</a>
+                            
+                        </div>
+                    </div>
+
+                    <h3 class="mt-5 mb-3">2022</h3>
+
+                    <div class="row mb-5">
+                        <div class="col-md-2 paper_pic">
+                            <a href="https://link.springer.com/article/10.1007/s00521-022-07634-2" 
+                            target="_blank">
+                            <img src="nca2022.pdf" alt="Publication Image" class="img-fluid shadow mb-4">
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <h3><a href="https://link.springer.com/article/10.1007/s00521-022-07634-2" target="_blank">Known and unknown event detection in OTDR traces by deep learning networks</a></h3>
+
+                            <h6><i>IEEE Neural Computing and Applications (NCA)</i></h6>
+
+                            <p>
+                                Object-detection network for OTDR traces for known and unknown events.
+                            </p>
+                            
+                            <a href="https://link.springer.com/content/pdf/10.1007/s00521-022-07634-2.pdf?pdf=button" target="_blank" class="btn btn-primary">Paper</a>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Publications Section -->
+<div class="col-md-12">
+    
+    
+
+    <!-- Repeat the structure for additional publications as needed -->
+
+</div>
+
+    <!-- Link to Bootstrap JS (jQuery and Popper.js required) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
