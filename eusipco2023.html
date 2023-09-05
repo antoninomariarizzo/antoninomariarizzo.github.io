@@ -32,6 +32,16 @@
             .arrow-icon {
                 margin-right: 10px;
             }
+
+            .max-width-100 {
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .max-width-100 {
+                max-width: 50%;
+            }
         }
         
         a.arrow-link {
@@ -54,8 +64,11 @@
     <!-- Content of the paper goes here -->
     <div class="container mt-4">
         <h1 class="mb-3">Event Detection in Optical Signals via Domain Adaptation</h1>
+
         <p>Antonino Maria Rizzo<sup>1</sup>, Luca Magri<sup>1</sup>, Pietro Invernizzi<sup>2</sup>, Enrico Sozio<sup>2</sup>, Gabriele Aquaro<sup>2</sup>, Stefano Binetti<sup>2</sup>, Cesare Alippi<sup>1,3</sup>, Giacomo Boracchi<sup>1</sup><br>
             <sup>1</sup>Politecnico di Milano, <sup>2</sup>Cisco Photonics, <sup>3</sup>Università della Svizzera Italiana</p>
+
+
 
         <h2>Abstract</h2>
         <p>
@@ -64,19 +77,22 @@
             signals collected from devices with different acquisition procedures. 
             We overcome this limitation by presenting a novel domain adaptation solution for event detection networks that enables
             inference across multiple types of devices. Rather than training a black-box detection network, we decouple event localization and classification tasks. Localization is performed by the Interval Proposal Algorithm (IPA), which leverages signal processing techniques to localize candidate events and derive context features. These events are then standardized and fed to a feature extractor to obtain morphological features. By combining domain-specific context features with domain-invariant morphological features, the classifier achieves good generalization capabilities through different domains. Our method can successfully detect events in OTDR traces achieving a mAP@0.5 of 75.33% on traces from the source domain and generalizing well (mAP@0.5 of 69.27%) on traces from the target domain, despite being trained solely from the source domain.
-
         </p>
+
+        <a href="https://polimi365-my.sharepoint.com/:b:/g/personal/10483090_polimi_it/Ed96Wgqz6T5Gs5GEvl50qFsBgaacrp4yUJbOXEmMqzwcfg" 
+        target="_blank" class="btn btn-primary">Paper</a>
+        <a href="https://polimi365-my.sharepoint.com/:b:/g/personal/10483090_polimi_it/EbezA5gGaplGkrXtRrXJ380BpEoAidyjNVPWMqW_CWnoFg" target="_blank" class="btn btn-secondary">Poster</a>
 
         <img src="otdr_scheme.png" alt="Publication Image" class="img-fluidmb-4" style="max-width: 100%;">
         
         <h2>Introduction</h2>
         <p>Detection networks are used to identify events within OTDR traces allowing the monitoring of fiber links.</p>
 
-        <img src="otdr_signal.png" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+        <img src="otdr_signal.png" alt="Publication Image" class="img-fluid mb-4 max-width-100">
 
         <p>Two distinct types of OTDR devices analyzing the same fiber span might provide extremely different traces.</p>
 
-        <img src="otdr_issue.png" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+        <img src="otdr_issue.png" alt="Publication Image" class="img-fluid mb-4 max-width-100">
 
         <p>
             We designed an event-detection network that generalizes well on traces from different devices, avoiding the need for retraining (Domain Adaptation).
@@ -119,7 +135,7 @@
             </ol>
         </p>
 
-        <img src="otdr_ipa.png" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+        <img src="otdr_ipa.png" alt="Publication Image" class="img-fluid mb-4 max-width-100">
 
 
         <h5>Event Standardization</h5>
