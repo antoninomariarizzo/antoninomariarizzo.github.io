@@ -16,12 +16,11 @@
             padding: 15px 0; /* Increase the top and bottom padding to make the bar larger */
         }
 
-        /* Style the arrow icon */
         .arrow-icon {
             float: right;
             font-size: 24px;
             margin-right: 20px;
-            color: #fff; /* Change the arrow color to white */
+            color: #fff;
         }
 
         /* Adjustments for smaller screens */
@@ -44,7 +43,7 @@
     <!-- Top Bar with Arrow Icon -->
     <div class="top-bar">
         <div class="container">
-            <a href="home.html" class="arrow-link">
+            <a href="index.html" class="arrow-link">
                 <i class="fas fa-arrow-left fa-2x"></i>
               </a>
         </div>
@@ -70,13 +69,18 @@
         
         <h2>Introduction</h2>
         <ul>
-            <li>User information is enclosed into spectra and transmitted through fiber optics. </li>
-            <li>A spectrum contains a varying number of channels that follow a trend 𝜈.</li>
-            <li>At the bottom of the spectrum, the ASE provides a base power level in regions with no channels. ASE samples follow a trend 𝜇.</li>
-            <li>The occurrence of faults cause anomalies, which result in non-equalized peaks.  </li>
+            <li>User information is enclosed into <b>spectra</b> and transmitted through fiber optics. </li>
+            <li>A spectrum contains a varying number of <b>channels</b> that follow a trend 𝜈.</li>
+            <li>The occurrence of faults causes <b>anomalies</b>.</li>
+            <li>Our goal is to automatically detect the anomalies in the spectrum, if any.</li>
         </ul>
 
-        
+        <h2>Key Intuitions</h2>
+        <ul>
+            <li>Anomalies are channels that do not conform to the channel trend.</li>
+            <li>Fit the channel trend via robust fitting, such as RanSaC.</li>
+            <li>Joint optimization allows us to promote the similarity between channel and ASE trends.</li>
+        </ul>
 
         <h2>Joint Optimization</h2>
         <p>
@@ -85,6 +89,9 @@
         <img src="ocm_jo.png" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
 
         <h2>Proposed Method</h2>
+        <img src="ocm_alg.png" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
+
+        <h2>Running Example</h2>
         <img src="ocm_running_example.png" alt="Publication Image" class="img-fluid mb-4" style="max-width: 50%;">
 
         <h2>Experiments</h2>
