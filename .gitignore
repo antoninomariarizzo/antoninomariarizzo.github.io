@@ -50,17 +50,13 @@ Temporary Items
 .history
 .ionide
 
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml
+### Node / Vite ###
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.env.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
